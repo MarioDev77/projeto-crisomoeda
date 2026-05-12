@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisomoeda — Recicle. Participe. Ganhe.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- SEO -->
+  <meta name="description" content="Crisomoeda é o projeto de reciclagem de Crisópolis, Bahia. Recicle, ganhe Crisomoedas e transforme sua cidade. Sustentabilidade e educação ambiental.">
+  <meta name="keywords" content="Crisomoeda, reciclagem Crisópolis, sustentabilidade Bahia, educação ambiental, coleta seletiva, meio ambiente Crisópolis">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crisomoeda — Recicle. Participe. Ganhe.">
+  <meta property="og:description" content="Projeto de reciclagem de Crisópolis - BA. Recicle, ganhe Crisomoedas e transforme sua cidade.">
+  <meta property="og:url" content="https://crisomoeda.netlify.app">
+  <meta property="og:type" content="website">
+  <style>
+    /* ── Hero centralizado e sem esticar ── */
+    .hero-centered {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 120px 28px 80px !important;
+      max-width: 100% !important;
+    }
+    .hero-centered .hero-content {
+      max-width: 780px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-centered .hero-title {
+      white-space: nowrap;
+      font-size: clamp(2.8rem, 9vw, 6.5rem);
+      line-height: 1;
+    }
+    .hero-centered .hero-title .criso,
+    .hero-centered .hero-title .moeda {
+      display: inline !important;
+    }
+    .hero-centered .hero-desc { text-align: center; margin: 0 auto 36px; }
+    .hero-centered .hero-badge { justify-content: center; }
+    .hero-centered .hero-buttons { justify-content: center; }
+    .hero-centered .hero-stats { justify-content: center; }
+    .hero-centered .hero-visual { display: none !important; }
+
+    /* ── Moeda girando ── */
+    .hero-coin-spin {
+      font-size: 2.6rem;
+      margin: 8px 0 20px;
+      display: inline-block;
+      animation: coinRotate 2.4s linear infinite;
+      filter: drop-shadow(0 0 14px rgba(240,192,96,0.6));
+    }
+    .app-grid-single {
+      grid-template-columns: 1fr !important;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    @keyframes coinRotate {
+      0%   { transform: rotateY(0deg) scale(1); }
+      25%  { transform: rotateY(90deg) scale(0.85); }
+      50%  { transform: rotateY(180deg) scale(1); }
+      75%  { transform: rotateY(270deg) scale(0.85); }
+      100% { transform: rotateY(360deg) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-coin">🪙</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logos">
+        <img src="img/logo.jpeg" alt="Logo Crisomoeda" class="nav-logo">
+        <img src="img/logo-escola.jpeg" alt="Colégio Estadual Eudóxia Maria" class="nav-logo escola-logo">
+        <img src="img/bandeira-bahia.png" alt="Governo da Bahia" class="nav-logo govba-logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#proposito">Propósito</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#materiais">Materiais</a></li>
+        <li><a href="#app">App</a></li>
+        <li><a href="#ods" class="nav-cta">ODS</a></li>
+      </ul>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="nav-mobile" id="navMobile">
+      <ul>
+        <li><a href="#proposito" class="mob-link">Propósito</a></li>
+        <li><a href="#como-funciona" class="mob-link">Como Funciona</a></li>
+        <li><a href="#materiais" class="mob-link">Materiais</a></li>
+        <li><a href="#app" class="mob-link">App</a></li>
+        <li><a href="#ods" class="mob-link">ODS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero-centered" id="inicio">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-orbs">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-hero">
+        <span class="badge-dot"></span>
+        ♻ Projeto Educacional &amp; Sustentável · Crisópolis, Bahia
+      </div>
+      <h1 class="hero-title reveal-hero delay-1">
+        <span class="criso">CRISO</span><span class="moeda">MOEDA</span>
+      </h1>
+      <div class="hero-coin-spin reveal-hero delay-2">🪙</div>
+      <p class="hero-tagline reveal-hero delay-2">Recicle. Participe. <em>Ganhe.</em></p>
+      <p class="hero-desc reveal-hero delay-3">
+        Uma moeda social que transforma resíduos em oportunidades — conectando 
+        sustentabilidade, tecnologia e economia circular em Crisópolis.
+      </p>
+      <div class="hero-buttons reveal-hero delay-4">
+        <a href="#app" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+          Baixar APP
+        </a>
+        <a href="#ods" class="btn btn-outline">Ver ODS</a>
+        <a href="https://www.instagram.com/crisoverde" target="_blank" rel="noopener" class="btn btn-instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+      </div>
+      <div class="hero-stats reveal-hero delay-5">
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Materiais aceitos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">6</span>
+          <span class="stat-label">ODS alinhadas</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Impacto local</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal-hero delay-3">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="app-header">
+            <span class="app-hello">Olá, Usuário 👋</span>
+            <div class="app-notif">🔔</div>
+          </div>
+          <div class="app-balance">
+            <span class="balance-label">Saldo de Crisomoedas</span>
+            <span class="balance-num">🪙 240</span>
+            <span class="balance-sub">+18 esta semana</span>
+          </div>
+          <div class="app-actions">
+            <div class="app-action-btn">♻ Reciclar</div>
+            <div class="app-action-btn highlight">🎁 Resgatar</div>
+          </div>
+          <div class="app-history">
+            <span class="history-title">Histórico</span>
+            <div class="history-item"><span>Plástico PET</span><span class="green">+12 🪙</span></div>
+            <div class="history-item"><span>Papelão</span><span class="green">+8 🪙</span></div>
+            <div class="history-item"><span>Latinha</span><span class="green">+6 🪙</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPÓSITO -->
+  <section class="proposito" id="proposito">
+    <div class="container">
+      <div class="section-label reveal">Nosso Propósito</div>
+      <h2 class="section-title reveal">Nasceu na sala de aula</h2>
+      <div class="proposito-grid">
+        <div class="proposito-text reveal">
+          <p>
+            A <strong>Crisomoeda</strong> é um projeto educacional e social que nasceu dentro de uma sala de aula em 
+            <strong>Crisópolis, Bahia</strong>. Com foco em sustentabilidade e impacto real na comunidade, o projeto 
+            transforma a forma como a cidade lida com seus resíduos recicláveis.
+          </p>
+          <p>
+            Mais do que reciclar, a Crisomoeda propõe uma nova economia local — onde cada gesto sustentável 
+            gera valor para quem participa e para o meio ambiente.
+          </p>
+          <div class="proposito-tags">
+            <span class="ptag">♻ Sustentabilidade</span>
+            <span class="ptag">🏫 Educação</span>
+            <span class="ptag">💚 Impacto Social</span>
+            <span class="ptag">🔄 Economia Circular</span>
+          </div>
+        </div>
+        <div class="recolha-img-wrapper reveal delay-1">
+          <img src="img/recolha.jpeg" alt="Ponto de Recolha Crisomoeda" class="recolha-img">
+          <div class="img-badge">Ponto de Coleta</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="como-funciona" id="como-funciona">
+    <div class="container">
+      <div class="section-label light reveal">Crisomoeda</div>
+      <h2 class="section-title light reveal">Como funciona a Crisomoeda</h2>
+      <div class="cards-grid">
+        <div class="card reveal">
+          <div class="card-icon-wrap"><span class="card-icon">♻</span></div>
+          <h3>Conheça os recicláveis que aceitamos</h3>
+          <p>Separe seus materiais recicláveis em casa e leve até um ponto de coleta do projeto.</p>
+          <span class="card-num">01</span>
+        </div>
+        <div class="card card-highlight reveal delay-1">
+          <div class="card-icon-wrap"><span class="card-icon">🪙</span></div>
+          <h3>Ganhe Crisomoedas</h3>
+          <p>Cada entrega é registrada e convertida em <strong>Crisomoedas</strong> — a moeda social do projeto. Quanto mais você recicla, mais você acumula.</p>
+          <span class="card-num">02</span>
+        </div>
+        <div class="card reveal delay-2">
+          <div class="card-icon-wrap"><span class="card-icon">🎁</span></div>
+          <h3>Use seus benefícios</h3>
+          <p>Converta suas Crisomoedas em vales de desconto. O seu gesto sustentável vira benefício real.</p>
+          <span class="card-num">03</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIAIS -->
+  <section class="materiais" id="materiais">
+    <div class="container">
+      <div class="section-label reveal">O que aceitamos</div>
+      <h2 class="section-title reveal">Materiais Recicláveis</h2>
+      <div class="materiais-grid">
+
+        <div class="material-card reveal">
+          <div class="mat-header">
+            <div class="mat-icon-circle" style="--mc:#3a86ff">🧴</div>
+            <h4>Plástico</h4>
+          </div>
+          <ul class="mat-list">
+            <li>
+              <div class="mat-item-icon">🍶</div>
+              <div>
+                <strong>Garrafa PET 1L</strong>
+                <span>Limpa e sem tampa</span>
+              </div>
+            </li>
+            <li>
+              <div class="mat-item-icon">🍾</div>
+              <div>
+                <strong>Garrafa PET 2L</strong>
+                <span>Limpa e amassada</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="material-card reveal delay-1">
+          <div class="mat-header">
+            <div class="mat-icon-circle" style="--mc:#f4a261">📰</div>
+            <h4>Papel</h4>
+          </div>
+          <ul class="mat-list">
+            <li>
+              <div class="mat-item-icon">📦</div>
+              <div>
+                <strong>Caixas de papelão</strong>
+                <span>Secas e dobradas</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="material-card reveal delay-2">
+          <div class="mat-header">
+            <div class="mat-icon-circle" style="--mc:#52b788">🥫</div>
+            <h4>Metal</h4>
+          </div>
+          <ul class="mat-list">
+            <li>
+              <div class="mat-item-icon">🍺</div>
+              <div>
+                <strong>Latinhas de alumínio</strong>
+                <span>Amassadas e limpas</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APP SECTION -->
+  <section class="app-section" id="app">
+    <div class="container">
+      <div class="section-label reveal">Tecnologia &amp; Inovação</div>
+      <h2 class="section-title reveal">Plataforma Digital</h2>
+      <p class="section-subtitle reveal">Desenvolvemos uma plataforma digital onde cada usuário pode:</p>
+      <div class="app-grid app-grid-single">
+        <div class="app-features reveal">
+          <div class="app-feature">
+            <div class="feat-icon">📊</div>
+            <div>
+              <h4>Acompanhar saldo de Crisomoedas</h4>
+              <p>Visualize em tempo real quantas Crisomoedas você possui e seu histórico de ganhos.</p>
+            </div>
+          </div>
+          <div class="app-feature">
+            <div class="feat-icon">🔄</div>
+            <div>
+              <h4>Visualizar histórico de conversões</h4>
+              <p>Acompanhe cada entrega de material reciclável e a conversão em Crisomoedas.</p>
+            </div>
+          </div>
+          <div class="app-feature">
+            <div class="feat-icon">💳</div>
+            <div>
+              <h4>Acessar transações</h4>
+              <p>Controle seus resgates e uso de Crisomoedas nas lojas parceiras.</p>
+            </div>
+          </div>
+          <div class="qr-highlight">
+            <div class="qr-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h3v-3M17 17v3"/></svg>
+            </div>
+            <p><strong>Utilizamos QR Code</strong> para garantir segurança e praticidade em todas as transações.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS / TIMELINE -->
+  <section class="etapas" id="etapas">
+    <div class="container">
+      <div class="section-label light reveal">Passo a Passo</div>
+      <h2 class="section-title light reveal">Como usar a Crisomoeda</h2>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <div class="tl-num">01</div>
+          <div class="tl-content">
+            <h4>Cadastro</h4>
+            <p>Crie sua conta com e-mail e senha e comece a participar.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal delay-1">
+          <div class="tl-num">02</div>
+          <div class="tl-content">
+            <h4>Coleta</h4>
+            <p>Separe seus recicláveis: plástico (garrafa PET), papel (papelão) e alumínio (latinhas).</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal delay-2">
+          <div class="tl-num">03</div>
+          <div class="tl-content">
+            <h4>Entrega</h4>
+            <p>Leve até um ponto de coleta do Projeto.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal delay-1">
+          <div class="tl-num">04</div>
+          <div class="tl-content">
+            <h4>Conversão</h4>
+            <p>O atendente registra seus materiais e gera um QR Code.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal delay-2">
+          <div class="tl-num">05</div>
+          <div class="tl-content">
+            <h4>Ganho</h4>
+            <p>Escaneie o QR Code com a câmera do seu celular e receba suas Crisomoedas automaticamente.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal delay-3">
+          <div class="tl-num">06</div>
+          <div class="tl-content">
+            <h4>Uso</h4>
+            <p>Utilize suas Crisomoedas em lojas parceiras e ganhe descontos.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="tl-final reveal">
+        <span>💚</span>
+        <p>Simples assim: você ajuda o planeta e ainda ganha benefícios.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ODS SECTION -->
+  <section class="ods-section" id="ods">
+    <div class="container">
+      <div class="ods-top reveal">
+        <div class="section-label light">Impacto Global</div>
+        <h2 class="section-title light">Objetivos de Desenvolvimento Sustentável</h2>
+      </div>
+
+      <div class="ods-intro-grid">
+        <div class="ods-intro-card reveal">
+          <div class="ods-intro-icon">🌍</div>
+          <h3>O que são as ODS?</h3>
+          <p>As ODS são metas globais estabelecidas pela ONU para promover o desenvolvimento sustentável até 2030, abrangendo educação, economia, inclusão social e preservação ambiental.</p>
+        </div>
+        <div class="ods-intro-card reveal delay-1">
+          <div class="ods-intro-icon">🪙</div>
+          <h3>ODS e a Crisomoeda</h3>
+          <p>A Crisomoeda está alinhada aos ODS ao incentivar reciclagem, conscientização ambiental e valorização de resíduos, promovendo impacto social positivo e economia circular, inclusiva e sustentável.</p>
+        </div>
+      </div>
+
+      <div class="ods-grid">
+        <div class="ods-card reveal" style="--ods-color:#E5243B">
+          <img src="img/ods4.jpeg" alt="ODS 4" class="ods-img">
+          <div class="ods-num">ODS 4</div>
+          <h4>Educação de Qualidade</h4>
+          <p class="ods-desc">Promover educação inclusiva, equitativa e de qualidade.</p>
+          <p class="ods-rel">A Crisomoeda incentiva a educação ambiental e o desenvolvimento de consciência sustentável.</p>
+        </div>
+        <div class="ods-card reveal delay-1" style="--ods-color:#A21942">
+          <img src="img/ods8.jpeg" alt="ODS 8" class="ods-img">
+          <div class="ods-num">ODS 8</div>
+          <h4>Trabalho Decente e Crescimento Econômico</h4>
+          <p class="ods-desc">Promover crescimento econômico sustentável e trabalho digno.</p>
+          <p class="ods-rel">O projeto cria oportunidades de geração de renda por meio da reciclagem.</p>
+        </div>
+        <div class="ods-card reveal delay-2" style="--ods-color:#DD1367">
+          <img src="img/ods10.jpeg" alt="ODS 10" class="ods-img">
+          <div class="ods-num">ODS 10</div>
+          <h4>Redução das Desigualdades</h4>
+          <p class="ods-desc">Reduzir desigualdades sociais e econômicas.</p>
+          <p class="ods-rel">A Crisomoeda permite inclusão social ao oferecer benefícios acessíveis a diferentes públicos.</p>
+        </div>
+        <div class="ods-card reveal" style="--ods-color:#FD9D24">
+          <img src="img/ods11.jpeg" alt="ODS 11" class="ods-img">
+          <div class="ods-num">ODS 11</div>
+          <h4>Cidades e Comunidades Sustentáveis</h4>
+          <p class="ods-desc">Tornar cidades mais sustentáveis e resilientes.</p>
+          <p class="ods-rel">O projeto contribui para a limpeza urbana e gestão adequada de resíduos.</p>
+        </div>
+        <div class="ods-card reveal delay-1" style="--ods-color:#BF8B2E">
+          <img src="img/ods12.jpeg" alt="ODS 12" class="ods-img">
+          <div class="ods-num">ODS 12</div>
+          <h4>Consumo e Produção Responsáveis</h4>
+          <p class="ods-desc">Garantir padrões sustentáveis de consumo e produção.</p>
+          <p class="ods-rel">A Crisomoeda incentiva diretamente a reciclagem e o reaproveitamento de materiais.</p>
+        </div>
+        <div class="ods-card reveal delay-2" style="--ods-color:#19486A">
+          <img src="img/ods17.jpeg" alt="ODS 17" class="ods-img">
+          <div class="ods-num">ODS 17</div>
+          <h4>Parcerias e Meios de Implementação</h4>
+          <p class="ods-desc">Fortalecer parcerias para o desenvolvimento sustentável.</p>
+          <p class="ods-rel">O projeto integra parcerias com empresas, governos e comunidades locais.</p>
+        </div>
+      </div>
+
+      <div class="ods-cta reveal">
+        <a href="#" class="btn btn-crisodigital">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Conheça também o Crisoverde Digital
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logos">
+            <img src="img/logo.jpeg" alt="Logo Crisomoeda" class="footer-logo">
+            <img src="img/logo-escola.jpeg" alt="Colégio Estadual Eudóxia Maria" class="footer-logo">
+            <img src="img/bandeira-bahia.png" alt="Governo da Bahia" class="footer-logo govba-footer">
+          </div>
+          <p class="footer-name"><strong>Crisomoeda</strong></p>
+          <p class="footer-sub">Projeto Educacional e Sustentável</p>
+          <p class="footer-escola">Colégio Estadual de Tempo Integral Eudóxia Maria · Crisópolis, Bahia</p>
+        </div>
+        <div class="footer-links-col">
+          <h5>Navegação</h5>
+          <a href="#proposito">Propósito</a>
+          <a href="#como-funciona">Como Funciona</a>
+          <a href="#materiais">Materiais</a>
+          <a href="#app">App</a>
+          <a href="#ods">ODS</a>
+        </div>
+        <div class="footer-links-col">
+          <h5>Projeto</h5>
+          <a href="#parceiros">Lojas Parceiras</a>
+          <a href="#etapas">Etapas</a>
+          <a href="https://www.instagram.com/crisoverde" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-tag">Recicle. Participe. Ganhe. ♻</p>
+        <p>© 2025 Crisomoeda. Todos os direitos reservados.</p>
+        <p class="footer-dev">
+          Desenvolvido por 
+          <a href="https://github.com/MarioDev77" target="_blank" rel="noopener" class="footer-dev-link">MarioDev77</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Loader
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => loader.classList.add('hidden'), 800);
+    });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navMobile = document.getElementById('navMobile');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('open');
+      navMobile.classList.toggle('open');
+    });
+    document.querySelectorAll('.mob-link').forEach(l => {
+      l.addEventListener('click', () => {
+        menuBtn.classList.remove('open');
+        navMobile.classList.remove('open');
+      });
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal, .reveal-hero');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Hero reveals immediately
+    document.querySelectorAll('.reveal-hero').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 100);
+    });
+  </script>
+</body>
+</html>
